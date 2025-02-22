@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL SAGE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fas fa-globe-americas"></i> TRAVEL SAGE</h1>
+        </header>
+        <nav>
+            <button id="toggle-chat"><i class="fas fa-comments"></i> Chat</button>
+            <button id="toggle-planner"><i class="fas fa-calendar-alt"></i> Trip Planner</button>
+            <button id="toggle-theme"><i class="fas fa-moon"></i> Theme</button>
+        </nav>
+        <main>
+            <section id="chat-section" class="active">
+                <div class="chat-container">
+                    <div id="chat-box"></div>
+                    <div class="input-area">
+                        <input type="text" id="user-input" placeholder="Ask about your travel plans..." />
+                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <style>
+                        #chat-box {
+                            height: 60vh;
+                        }
+                    </style>
+                    <div class="features">
+                        <button id="clear-chat"><i class="fas fa-trash"></i> Clear</button>
+                        <button id="save-chat"><i class="fas fa-save"></i> Save</button>
+                        <button id="export-pdf"><i class="fas fa-file-pdf"></i> PDF</button>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="quick-action" data-action="popular-destinations"><i class="fas fa-map-marker-alt"></i> Popular Destinations</button>
+                        <button class="quick-action" data-action="travel-tips"><i class="fas fa-lightbulb"></i> Travel Tips</button>
+                        <button class="quick-action" data-action="packing-list"><i class="fas fa-suitcase"></i> Packing List</button>
+                        <button class="quick-action" data-action="local-cuisine"><i class="fas fa-utensils"></i> Local Cuisine</button>
+                        <button class="quick-action" data-action="cultural-etiquette"><i class="fas fa-handshake"></i> Cultural Etiquette</button>
+                    </div>
+                </div>
+            </section>
+            <section id="planner-section">
+                <div class="planner-container">
+                    <h2><i class="fas fa-map"></i> Trip Planner</h2>
+                    <form id="trip-form">
+                        <div class="form-group">
+                            <label for="destination"><i class="fas fa-map-marker-alt"></i> Destination:</label>
+                            <input type="text" id="destination" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration"><i class="fas fa-clock"></i> Duration (days):</label>
+                            <input type="number" id="duration" min="1" max="30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget"><i class="fas fa-money-bill-wave"></i> Budget ($):</label>
+                            <input type="number" id="budget" min="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interests"><i class="fas fa-heart"></i> Interests:</label>
+                            <select id="interests" multiple>
+                                <option value="culture">Culture & History</option>
+                                <option value="nature">Nature & Outdoors</option>
+                                <option value="food">Food & Cuisine</option>
+
+                                <option value="adventure">Adventure & Sports</option>
+                                <option value="relaxation">Relaxation & Wellness</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="generate-plan"><i class="fas fa-magic"></i> Generate Plan</button>
+                    </form>
+                    <div id="trip-plan"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
